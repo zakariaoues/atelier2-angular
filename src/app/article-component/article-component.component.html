@@ -1,0 +1,31 @@
+<h1>{{titre}}</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Titre</th>
+      <th>Contenu</th>
+      <th>Auteur</th>
+      <th>Date</th>
+      <th>Categorie</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    
+    <div>
+      <label>Nombre total d'articles affichés : {{ listArticles.length }}</label>
+      <input type="text" [(ngModel)]="nombreArticlesMax">
+    </div>
+
+    <tr ng-container *ngFor="let article of listArticles | slice:0:nombreArticlesMax"  >
+    <div  [ngStyle]="{'color': article.categorie === 'Education' ? 'blue' : 'black'}">
+      <td>{{ article.contenu }}</td>
+      <td>{{ article.auteur }}</td>
+      <td>{{ article.date }}</td>
+      <td>{{ article.categorie }}</td>
+    </div>
+    </tr>
+
+    
+  </tbody>
+
